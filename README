@@ -1,0 +1,23 @@
+#SNAPP module for SilverStripe#
+
+Connect OpenSocial gadgets to silverstripe
+
+Requires the silverstripe webservice module (https://github.com/nyeholt/silverstripe-webservices)
+
+
+Use the javascript lib (code/javascript/lib.js) in your gadget.
+
+e.g.
+
+//set true if on a dev/test server for ajax request usage
+var mg = new silverstripe_gadget("YOUR_SERVER_BASEURL_HERE", true);
+
+//Use this line to check user mapping
+gadgets.util.registerOnLoadHandler(function(){mg.user_map_exists()});
+
+//Example web services call
+mg.web_service_call('BuddyWeb', 'getUnreadMessages', '', setunreadmsgs);
+
+function setunreadmsgs(ret) {
+	//do something with result here
+}
